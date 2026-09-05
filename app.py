@@ -1,3 +1,24 @@
+"""
+TanyaMed — Simulasi Alur Layanan (terhubung ke Anthropic API)
+================================================================
+Prototipe Streamlit dengan Claude sebagai "otak" conversational triage agent
+dan pre-anamnesis assistant. Claude memutuskan sendiri, lewat tool use, kapan
+harus merujuk darurat (rujuk_darurat) dan kapan riwayat gejala sudah cukup
+lengkap untuk dicatat (catat_riwayat). Efek sampingnya (isi panel Faskes,
+poin & lencana SATUSEHAT) dieksekusi di Python begitu tool tersebut dipanggil.
+
+Cara menjalankan lokal:
+    pip install -r requirements.txt
+    export ANTHROPIC_API_KEY="sk-ant-..."      # atau isi lewat sidebar app
+    streamlit run app.py
+
+Cara deploy ke Streamlit Community Cloud:
+    1. Push app.py + requirements.txt ke repo GitHub (JANGAN commit API key).
+    2. Di dashboard Streamlit Cloud, buka Settings > Secrets, isi:
+           ANTHROPIC_API_KEY = "sk-ant-..."
+    3. Deploy dengan app.py sebagai entry point.
+"""
+
 import os
 from datetime import datetime
 
